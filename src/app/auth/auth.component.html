@@ -1,0 +1,32 @@
+<div class="col-md-6">
+  <div  class="alert alert-danger" *ngIf="error">
+    <p>{{error}}</p>
+  </div>
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        type="email" 
+        class="form-control" 
+        ngModel
+        name="email"
+        ngModel
+        required
+        email>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        ngModel
+        name="password"
+        pattern="(?=.*[0-9])\S+"
+        minlength="6"
+        required
+        ngModel
+        >
+    </div>
+    <button type="submit" class="btn btn-default" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</div>
